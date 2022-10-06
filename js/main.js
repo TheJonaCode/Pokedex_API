@@ -27,6 +27,7 @@ function createPokemon(pokemon) {
     spriteContainer.appendChild(sprite);
 
     const number = document.createElement('p');
+    number.classList.add('pokemon__id');
     //ID con 3 ceros al principio
     number.textContent = `#${pokemon.id.toString().padStart(3,0)}`;
 
@@ -34,8 +35,8 @@ function createPokemon(pokemon) {
     name.classList.add('name');
     name.textContent = pokemon.name;
 
-    card.appendChild(spriteContainer);
     card.appendChild(number);
+    card.appendChild(spriteContainer);
     card.appendChild(name);
 
     pokemonContainer.appendChild(card);
