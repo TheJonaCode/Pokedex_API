@@ -1,10 +1,10 @@
 const pokemonContainer = document.querySelector('.pokemon__container');
 
 function fetchPokemon(id) {
-    fetch(`https://pokeapi.co/api/v2/ability/${id}/`)
-        .then(res => res.json())
-        .then(data => {
-            createPokemon(data)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+        .then((res) => res.json())
+        .then((data) => {
+            createPokemon(data);
         });
 }
 
