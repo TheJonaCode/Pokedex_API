@@ -22,14 +22,13 @@ next.addEventListener("click", () => {
     fetchPokemons(offset, limit);
 });
 
-function fetchPokemon(id) {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-        .then((res) => res.json())
-        .then((data) => {
-            createPokemon(data);
-            /*Spinner oculto*/
-            spinner.style.display = "none";
-        });
+async function fetchPokemon(id) {
+    /*Async + await espera a recibir todos los datos y después los muestra*/
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+    const data = await res.json();
+    createPokemon(data);
+    /*Spinner oculto*/
+    spinner.style.display = "none";
 }
 
 function fetchPokemons(offset, limit) {
@@ -96,12 +95,12 @@ function pokemonInfo(pokemon) {
     const height = document.createElement('p');
     height.classList.add('pokemon__height');
     pokemonHeight = pokemon.height / 10;
-    height.textContent = pokemonHeight + "M";
+    height.textContent = pokemonHeight + " M.";
 
     const weight = document.createElement('p');
     weight.classList.add('pokemon__weight');
     pokemonWeight = pokemon.weight / 10;
-    weight.textContent = pokemonWeight + "KG";
+    weight.textContent = pokemonWeight + " KG.";
 
     infoContainer.appendChild(name);
     infoContainer.appendChild(height);
