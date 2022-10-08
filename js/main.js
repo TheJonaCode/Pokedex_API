@@ -77,6 +77,7 @@ function createPokemon(pokemon) {
 
     const cardBack = document.createElement('div');
     cardBack.classList.add('pokemon__block__back');
+    cardBack.appendChild(pokemonInfo(pokemon));
     cardBack.appendChild(progressBars(pokemon.stats));
 
     cardContainer.appendChild(card);
@@ -84,9 +85,34 @@ function createPokemon(pokemon) {
     pokemonContainer.appendChild(flipCard);
 }
 
+function pokemonInfo(pokemon) {
+    const infoContainer = document.createElement('div');
+    infoContainer.classList.add('info__container');
+
+    const name = document.createElement('p');
+    name.classList.add('pokemon__name');
+    name.textContent = pokemon.name;
+
+    const height = document.createElement('p');
+    height.classList.add('pokemon__height');
+    pokemonHeight = pokemon.height / 10;
+    height.textContent = pokemonHeight + "M";
+
+    const weight = document.createElement('p');
+    weight.classList.add('pokemon__weight');
+    pokemonWeight = pokemon.weight / 10;
+    weight.textContent = pokemonWeight + "KG";
+
+    infoContainer.appendChild(name);
+    infoContainer.appendChild(height);
+    infoContainer.appendChild(weight);
+
+    return infoContainer;
+}
+
 function progressBars(stats) {
     const statsContainer = document.createElement('div');
-    statsContainer.classList.add('stats__container')
+    statsContainer.classList.add('stats__container');
 
     for (let i = 0; i < 3; i++) {
         const stat = stats[i];

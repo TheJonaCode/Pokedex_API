@@ -146,3 +146,17 @@ body {
 .stat__name {
     color: #f9f6f6;
 }
+
+.pokemon__name {
+    color: #f9f6f6;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.pokemon__height,
+.pokemon__weight {
+    color: #f9f6f6;
+    display: inline-block;
+    padding: 0 2% 0 2%;
+}
