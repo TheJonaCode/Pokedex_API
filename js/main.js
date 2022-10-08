@@ -43,10 +43,10 @@ function fetchPokemons(offset, limit) {
 function createPokemon(pokemon) {
     /*Efecto flip card*/
     const flipCard = document.createElement('div');
-    flipCard.classList.add('flip__card')
+    flipCard.classList.add('flip__card');
 
     const cardContainer = document.createElement('div');
-    cardContainer.classList.add('card__container')
+    cardContainer.classList.add('card__container');
 
     flipCard.appendChild(cardContainer);
 
@@ -77,11 +77,47 @@ function createPokemon(pokemon) {
 
     const cardBack = document.createElement('div');
     cardBack.classList.add('pokemon__block__back');
-    cardBack.textContent = "Carta de atrás";
+    cardBack.appendChild(progressBars(pokemon.stats));
 
     cardContainer.appendChild(card);
     cardContainer.appendChild(cardBack)
     pokemonContainer.appendChild(flipCard);
+}
+
+function progressBars(stats) {
+    const statsContainer = document.createElement('div');
+    statsContainer.classList.add('stats__container')
+
+    for (let i = 0; i < 3; i++) {
+        const stat = stats[i];
+
+        const statPercent = stat.base_stat / 2 + "%";
+        const statContainer = document.createElement('div');
+        statContainer.classList.add('stat__container')
+
+        const statName = document.createElement('div');
+        statName.classList.add('stat__name')
+        statName.textContent = stat.stat.name;
+
+        const progress = document.createElement("div");
+        progress.classList.add("progress");
+
+        const progressBar = document.createElement('div');
+        progressBar.classList.add("progress-bar");
+        progressBar.setAttribute("aria-valuenow", stat.base_stat);
+        progressBar.setAttribute("aria-valuemin", 0);
+        progressBar.setAttribute("aria-valuemax", 200);
+        progressBar.style.width = statPercent;
+
+        progressBar.textContent = stat.base_stat;
+
+        progress.appendChild(progressBar);
+        statContainer.appendChild(statName);
+        statContainer.appendChild(progress);
+        statsContainer.appendChild(statContainer);
+    }
+
+    return statsContainer;
 }
 
 function removeChildNodes(parent) {

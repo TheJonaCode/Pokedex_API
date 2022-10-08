@@ -142,3 +142,7 @@ body {
     position: absolute;
     top: 0%;
 }
+
+.stat__name {
+    color: #f9f6f6;
+}
