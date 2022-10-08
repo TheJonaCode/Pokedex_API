@@ -126,6 +126,10 @@ body {
     transform-style: preserve-3d;
 }
 
+.flip__card:hover .card__container {
+    transform: rotateY(180deg);
+}
+
 .pokemon__block,
 .pokemon__block__back {
     width: 100%;

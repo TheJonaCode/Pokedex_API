@@ -41,6 +41,16 @@ function fetchPokemons(offset, limit) {
 }
 
 function createPokemon(pokemon) {
+    /*Efecto flip card*/
+    const flipCard = document.createElement('div');
+    flipCard.classList.add('flip__card')
+
+    const cardContainer = document.createElement('div');
+    cardContainer.classList.add('card__container')
+
+    flipCard.appendChild(cardContainer);
+
+    /*Cards Pokemons*/
     const card = document.createElement('div');
     card.classList.add('pokemon__block');
     //Contenedor imagen
@@ -65,7 +75,13 @@ function createPokemon(pokemon) {
     card.appendChild(spriteContainer);
     card.appendChild(name);
 
-    pokemonContainer.appendChild(card);
+    const cardBack = document.createElement('div');
+    cardBack.classList.add('pokemon__block__back');
+    cardBack.textContent = "Carta de atrás";
+
+    cardContainer.appendChild(card);
+    cardContainer.appendChild(cardBack)
+    pokemonContainer.appendChild(flipCard);
 }
 
 function removeChildNodes(parent) {
