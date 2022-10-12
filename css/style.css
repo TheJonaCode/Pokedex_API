@@ -103,10 +103,25 @@ body {
     font-size: 1.2rem;
 }
 
+#searchInput {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+#searchInput:focus {
+    background-color: #ffca3a;
+    box-shadow: none;
+    border-color: #001233;
+    color: #001233;
+}
+
 #spinner {
     display: none;
     position: absolute;
-    top: 50%;
+    top: 62%;
     left: 50%;
 }
 

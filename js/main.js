@@ -1,4 +1,5 @@
 const pokemonContainer = document.querySelector('.pokemon__container');
+const inputBusqueda = document.querySelector('#searchInput');
 const spinner = document.querySelector('#spinner');
 const previous = document.querySelector('#previous');
 const next = document.querySelector('#next');
@@ -21,6 +22,27 @@ next.addEventListener("click", () => {
     removeChildNodes(pokemonContainer);
     fetchPokemons(offset, limit);
 });
+
+function buscar(nombre) {
+    inputBusqueda.addEventListener('keyup', () => {
+        removeChildNodes(pokemonContainer);
+        /*Spinner se muestra*/
+        spinner.style.display = "block";
+
+        if (nombre.value == "") {
+            fetchPokemons(offset, limit);
+        } else {
+            fetch(`https://pokeapi.co/api/v2/pokemon/${nombre.value}/`)
+                .then(response => response.json())
+                .then(data => {
+                    createPokemon(data);
+                    /*Spinner oculto*/
+                    spinner.style.display = "none";
+                });
+
+        }
+    })
+};
 
 async function fetchPokemon(id) {
     /*Async + await espera a recibir todos los datos y después los muestra*/
@@ -152,3 +174,4 @@ function removeChildNodes(parent) {
 }
 
 fetchPokemons(offset, limit);
+buscar(inputBusqueda);
