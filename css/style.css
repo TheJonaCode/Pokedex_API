@@ -175,3 +175,55 @@ body {
     display: inline-block;
     padding: 0 2% 0 2%;
 }
+
+
+/*Phones*/
+
+@media (max-width: 575.98px) {
+    html,
+    body {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    .header .ligths {
+        width: 70px;
+        height: 40px;
+    }
+    .header .logo {
+        width: 150px;
+        height: 70px;
+    }
+    .header .icon {
+        font-size: 30px;
+    }
+    .header .info {
+        margin-top: 10px;
+    }
+    .header {
+        height: 130px;
+    }
+    .pokemon__container {
+        width: 100%;
+    }
+    .pokemon__block .pokemon__id {
+        display: none;
+    }
+    .pokemon__container {
+        margin: 1px;
+    }
+    .pokemon__container {
+        gap: 5px;
+    }
+    .card__container {
+        width: 85%;
+    }
+    .name {
+        font-size: 14px;
+    }
+    .pagination {
+        margin-top: 20px;
+    }
+    .stats__container {
+        display: none;
+    }
+}
